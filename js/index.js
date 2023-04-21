@@ -40,10 +40,11 @@ async function doLogin(email, password) {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    if (json.user && json.jwt) {
+    if (json.accessToken && json.name && json.email) {
       console.log(json);
-      saveToken(json.jwt);
-      saveUser(json.user);
+      saveToken(json.accessToken);
+      saveUser(json.name);
+      saveMail(json.email);
 
       location.href = "account.html";
     }
@@ -59,6 +60,7 @@ async function doLogin(email, password) {
 //Storage
 const tokenKey = "token";
 const userKey = "user";
+const mailKey = "mail";
 
 export function saveToken(token) {
   saveToStorage(tokenKey, token);
@@ -68,6 +70,9 @@ export function getToken() {
 }
 export function saveUser(user) {
   saveToStorage(userKey, user);
+}
+export function saveMail(mail) {
+  saveToStorage(mailKey, mail);
 }
 
 export function getUsername() {

@@ -1,1 +1,1 @@
-export const baseUrl = "https://api.noroff.dev/api/";
+export const baseUrl = "https://api.noroff.dev/api/v1/";
