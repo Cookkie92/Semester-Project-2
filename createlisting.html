@@ -64,20 +64,59 @@
     </header>
 
     <main>
-      <h1>BIDBOIS</h1>
-      <div class="listings">
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
+      <h1>My Auctions</h1>
+      <div class="container">
+        <h1 class="mt-5">Listings</h1>
+        <button id="add-listing">New listing</button>
+        <table class="table" id="listings-table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Auction</th>
+            </tr>
+          </thead>
+          <tbody id="listings-table-body">
+            <!-- The table body will be populated with the fetched listings -->
+          </tbody>
+        </table>
+      </div>
+      <!-- This section will display details about the selected auction when a row is clicked -->
+      <div class="container" id="auction-details" style="display: none">
+        <h1 class="mt-5">Auction Details</h1>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="return-to-listings-button"
+        >
+          Return to Listings
+        </button>
+        <form id="account-form">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              value="Auction Title"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              value="Description about the item being auctioned"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="ends-at" class="form-label">Ends at</label>
+            <input type="datetime" class="form-control" id="ends-at" value="" />
+          </div>
+        </form>
       </div>
     </main>
     <footer></footer>
@@ -86,6 +125,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/login.js" type="module"></script>
+    <script src="/js/createListing.js" type="module"></script>
   </body>
 </html>

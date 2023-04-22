@@ -3,7 +3,7 @@ import { baseUrl } from "./settings/api.js";
 async function getAllListings() {
   try {
     const response = await fetch(
-      `${baseUrl}/auction/listings?sortOrder=desc&_active=true&_seller=false&_bids=false`,
+      `${baseUrl}/auction/listings?sort=created&sortOrder=desc&_active=true&_seller=false&_bids=false`,
       {
         method: "GET",
       }
