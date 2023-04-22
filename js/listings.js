@@ -1,4 +1,4 @@
-import { getAllListings, getListing } from "./listingsApi.js";
+import { getAllListings, getListing, postListingBid } from "./listingsApi.js";
 
 const listings = await getAllListings();
 const listingsTable = document.getElementById("listings-table");
@@ -13,6 +13,7 @@ async function showAuctionDetails(auctionDetails) {
   listingsTable.style.display = "none";
   auctionDetailsSection.style.display = "block";
   const listingId = auctionDetails.id;
+  localStorage.setItem("listingId", listingId);
   const token = localStorage.getItem("accessToken");
   const listingDetails = await getListing(listingId, token);
   let highestBid = 0;
@@ -30,9 +31,12 @@ async function showAuctionDetails(auctionDetails) {
 }
 
 // A function to handle the submission of a bid
-function submitBid(event) {
+async function submitBid(event) {
   event.preventDefault();
-  const bidAmount = document.getElementById("bid-amount").value;
+  const token = localStorage.getItem("accessToken");
+  const listingId = localStorage.getItem("listingId");
+  const bidAmount = parseInt(document.getElementById("bid").value);
+  await postListingBid(listingId, bidAmount, token);
   // TODO: Handle the submission of the bid
 }
 

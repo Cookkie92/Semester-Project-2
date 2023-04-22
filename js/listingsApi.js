@@ -2,9 +2,12 @@ import { baseUrl } from "./settings/api.js";
 
 async function getAllListings() {
   try {
-    const response = await fetch(`${baseUrl}/auction/listings`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      `${baseUrl}/auction/listings?sortOrder=desc&_active=true&_seller=false&_bids=false`,
+      {
+        method: "GET",
+      }
+    );
 
     return await response.json();
   } catch (error) {
@@ -85,10 +88,32 @@ async function deleteListing(listingId, token) {
   }
 }
 
+async function postListingBid(listingId, amount, token) {
+  try {
+    const response = await fetch(
+      `${baseUrl}/auction/listings/${listingId}/bids`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ amount }),
+      }
+    );
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error Creating listing:", error);
+    throw error;
+  }
+}
+
 export {
   getAllListings,
   createListing,
   updateListing,
   getListing,
   deleteListing,
+  postListingBid,
 };
