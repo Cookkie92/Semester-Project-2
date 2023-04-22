@@ -65,7 +65,83 @@
 
     <main>
       <h1>BIDBOIS</h1>
-      <div class="listings"></div>
+      <div class="container">
+        <h1 class="mt-5">Listings</h1>
+        <table class="table" id="listings-table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Auction</th>
+            </tr>
+          </thead>
+          <tbody id="listings-table-body">
+            <!-- The table body will be populated with the fetched listings -->
+          </tbody>
+        </table>
+      </div>
+      <!-- This section will display details about the selected auction when a row is clicked -->
+      <div class="container" id="auction-details" style="display: none">
+        <h1 class="mt-5">Auction Details</h1>
+        <form id="account-form">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              value="Auction Title"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="seller" class="form-label">Seller</label>
+            <input
+              type="text"
+              class="form-control"
+              id="seller"
+              value="John Doe"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              value="Description about the item being auctioned"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Current Bid</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              value="0"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="bid" class="form-label">Bid</label>
+            <input type="number" class="form-control" id="bid" value="0" />
+            <p></p>
+            <button type="submit" class="btn btn-primary" id="place-bid-button">
+              Place Bid
+            </button>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="return-to-listings-button"
+          >
+            Return to Listings
+          </button>
+        </form>
+      </div>
     </main>
     <footer></footer>
     <script
