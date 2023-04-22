@@ -29,6 +29,7 @@ async function showAuctionDetails(auctionDetails) {
   document.getElementById("seller").value = listingDetails.seller.name;
   document.getElementById("price").value = highestBid;
   document.getElementById("title").value = listingDetails.title;
+  document.getElementById("ends-at").value = listingDetails.endsAt;
 }
 
 // A function to handle the submission of a bid
