@@ -1,4 +1,5 @@
 import { getAllListings, getListing, postListingBid } from "./listingsApi.js";
+import { getProfile } from "./profileApi.js";
 
 const listings = await getAllListings();
 const listingsTable = document.getElementById("listings-table");
@@ -48,6 +49,14 @@ async function submitBid(event) {
   }
 
   document.getElementById("price").value = highestBid;
+  let localProfileData = localStorage.getItem("ProfileData");
+  let profileData = JSON.parse(localProfileData);
+
+  profileData.credits = (
+    await getProfile(profileData.name, token, "/credits")
+  ).credits;
+
+  localStorage.setItem("ProfileData", JSON.stringify(profileData));
 }
 
 // Loop through the listings array and add each one to the table

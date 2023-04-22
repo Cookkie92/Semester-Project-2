@@ -35,7 +35,7 @@ async function updateProfileAvatar(profileName, profileData, token) {
   }
 }
 
-async function getProfile(profileName, profileData, token, options = "") {
+async function getProfile(profileName, token, options = "") {
   //Options for profiles is /listings, /bids and /credits and is optional
   try {
     const response = await fetch(
@@ -46,7 +46,6 @@ async function getProfile(profileName, profileData, token, options = "") {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(profileData),
       }
     );
 
