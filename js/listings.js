@@ -37,7 +37,17 @@ async function submitBid(event) {
   const listingId = localStorage.getItem("listingId");
   const bidAmount = parseInt(document.getElementById("bid").value);
   await postListingBid(listingId, bidAmount, token);
-  // TODO: Handle the submission of the bid
+  const listingDetails = await getListing(listingId, token);
+
+  let highestBid = 0;
+
+  if (listingDetails.bids && listingDetails.bids.length > 0) {
+    highestBid = listingDetails.bids.reduce((prev, current) =>
+      prev.amount > current.amount ? prev : current
+    ).amount;
+  }
+
+  document.getElementById("price").value = highestBid;
 }
 
 // Loop through the listings array and add each one to the table
