@@ -1,60 +1,23 @@
-import { baseUrl } from "./settings/api.js";
-async function getAllProfiles() {
+// import { getProfile } from "./profilesApi.js";
+
+async function populateAccountValues() {
   try {
-    const response = await fetch(`${baseUrl}/auction/profiles`);
-    return await response.json();
+    let localProfileData = localStorage.getItem("ProfileData");
+    let profileData = JSON.parse(localProfileData);
+
+    const userName = document.getElementById("username");
+    const email = document.getElementById("email");
+    const credits = document.getElementById("credits");
+    const avatar = document.getElementById("avatar");
+
+    userName.value = profileData.name;
+    email.value = profileData.email;
+    credits.value = profileData.credits;
+    avatar.value = profileData.avatar;
   } catch (error) {
-    console.error("Error fetching profiles:", error);
-    throw error;
+    console.error("Error fetching listings:", error);
+    // Display an error message or update the UI here
   }
 }
 
-async function updateProfileAvatar(profileName, profileData, token) {
-  /* Body below, string is bitarray
-         {
-            "avatar": "string"
-        }
-    */
-  try {
-    const response = await fetch(
-      `${baseUrl}/auction/profiles/${profileName}/media`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(profileData),
-      }
-    );
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error updating profile:", error);
-    throw error;
-  }
-}
-
-async function getProfile(profileName, profileData, token, options = "") {
-  //Options for profiles is /listings, /bids and /credits and is optional
-  try {
-    const response = await fetch(
-      `${baseUrl}/auction/profiles/${profileName}${options}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(profileData),
-      }
-    );
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error updating profile:", error);
-    throw error;
-  }
-}
-
-export { getAllProfiles, updateProfileAvatar, getProfile };
+populateAccountValues();

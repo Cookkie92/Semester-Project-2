@@ -1,52 +1,32 @@
-import { baseUrl } from "./settings/api.js";
-const form = document.querySelector("form");
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
-const username = document.querySelector("#username");
-const confirmPassword = document.querySelector("#confirm-password");
-form.addEventListener("submit", submitForm);
+import { registerUser } from "./authApi.js";
 
-function submitForm(event) {
-  event.preventDefault();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
-  const confirmPasswordValue = confirmPassword.value.trim();
-  const usernameValue = username.value.trim();
-  if (
-    emailValue.length === 0 ||
-    passwordValue.length === 0 ||
-    passwordValue != confirmPasswordValue
-  ) {
-    console.log("nonono");
-    displayMessage("warning", "invalid values", ".message-container");
-  }
-  console.log(event);
-  doRegister(usernameValue, emailValue, passwordValue);
-}
-async function doRegister(username, email, password) {
-  const url = baseUrl + "/auction/auth/register";
-  const data = JSON.stringify({
-    name: username,
-    email: email,
-    password: password,
-  });
-
-  const options = {
-    method: "POST",
-    body: data,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+async function handleRegister() {
+  const userNameInput = document.getElementById("username");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
 
   try {
-    const response = await fetch(url, options);
-    const json = await response.json();
+    const userName = userNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const reponse = await registerUser(userName, email, password);
 
-    if (json.error) {
-      displayMessage("warning", "Wrong email/Password", ".message-container");
+    console.log("Logged in successfully");
+    const registerSucess = document.getElementById("register-sucess");
+    if (reponse.name) {
+      registerSucess.style.display = "block";
+      location.href = "login.html";
     }
+
+    // Redirect to another page or update the UI here
   } catch (error) {
-    console.log(error);
+    console.error("Error logging in:", error);
+
+    // Display an error message or update the UI here
   }
 }
+
+document.getElementById("register-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  handleRegister();
+});

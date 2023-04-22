@@ -13,12 +13,16 @@
       crossorigin="anonymous"
     />
     <link href="css/style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/1c22db1230.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Bidbois</a>
+          <a class="navbar-brand" href="index.html">Bidbois</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -44,7 +48,14 @@
                 <a class="nav-link" href="register.html">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Account</a>
+                <a class="nav-link" href="createlisting.html">MyActions</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="account.html"
+                  ><i class="fas fa-user"></i> Account</a
+                >
               </li>
             </ul>
           </div>
@@ -54,20 +65,7 @@
 
     <main>
       <h1>BIDBOIS</h1>
-      <div class="listings">
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-        <div>LISTING</div>
-      </div>
+      <div class="listings"></div>
     </main>
     <footer></footer>
     <script
@@ -75,5 +73,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/listings.js" type="module"></script>
   </body>
 </html>
