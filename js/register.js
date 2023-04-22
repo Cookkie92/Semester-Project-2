@@ -1,4 +1,4 @@
-import { baseUrl } from "./settings/api";
+import { baseUrl } from "./settings/api.js";
 const form = document.querySelector("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
@@ -24,7 +24,7 @@ function submitForm(event) {
   doRegister(usernameValue, emailValue, passwordValue);
 }
 async function doRegister(username, email, password) {
-  const url = baseUrl + "social/auth/register";
+  const url = baseUrl + "/auction/auth/register";
   const data = JSON.stringify({
     name: username,
     email: email,
