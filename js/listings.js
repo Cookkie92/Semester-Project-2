@@ -1,4 +1,4 @@
-import { getAllListings } from "./listingsApi.js";
+import { getAllListings, getListing } from "./listingsApi.js";
 
 const listings = await getAllListings();
 const listingsTable = document.getElementById("listings-table");
@@ -9,12 +9,24 @@ const returnToListingsButton = document.getElementById(
 );
 
 // A function to display details about the selected auction
-function showAuctionDetails(auctionDetails) {
+async function showAuctionDetails(auctionDetails) {
   listingsTable.style.display = "none";
   auctionDetailsSection.style.display = "block";
-  document.getElementById("description").value = auctionDetails.description;
-  // document.getElementById('price').textContent = `Price: ${auctionDetails}`;
-  document.getElementById("title").value = auctionDetails.title;
+  const listingId = auctionDetails.id;
+  const token = localStorage.getItem("accessToken");
+  const listingDetails = await getListing(listingId, token);
+  let highestBid = 0;
+
+  if (listingDetails.bids && listingDetails.bids.length > 0) {
+    highestBid = listingDetails.bids.reduce((prev, current) =>
+      prev.amount > current.amount ? prev : current
+    ).amount;
+  }
+
+  document.getElementById("description").value = listingDetails.description;
+  document.getElementById("seller").value = listingDetails.seller.name;
+  document.getElementById("price").value = highestBid;
+  document.getElementById("title").value = listingDetails.title;
 }
 
 // A function to handle the submission of a bid

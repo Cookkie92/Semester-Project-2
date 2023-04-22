@@ -1,15 +1,3 @@
 body {
   color: blue;
-}
-
-.custom-file-label::after {
-  content: "Choose file";
-}
-
-.custom-file-label[for=avatar]::after {
-  content: "Choose Avatar";
-}
-
-.custom-file-label[for=banner]::after {
-  content: "Choose Banner";
 }/*# sourceMappingURL=style.css.map */

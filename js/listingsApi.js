@@ -49,15 +49,18 @@ async function updateListing(listingId, listingData, token) {
   }
 }
 
-async function getListing(listingId, listingData, token) {
+async function getListing(listingId, token) {
   try {
-    const response = await fetch(`${baseUrl}/auction/listings/${listingId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `${baseUrl}/auction/listings/${listingId}?_seller=true&_bids=true`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     return await response.json();
   } catch (error) {
@@ -65,7 +68,7 @@ async function getListing(listingId, listingData, token) {
     throw error;
   }
 }
-async function deleteListing(listingId, listingData, token) {
+async function deleteListing(listingId, token) {
   try {
     const response = await fetch(`${baseUrl}/auction/listings/${listingId}`, {
       method: "DELETE",
