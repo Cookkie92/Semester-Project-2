@@ -46,6 +46,7 @@ async function postListing(event) {
   event.preventDefault();
 
   const listingData = {
+    media: [document.getElementById("listing-img-url").value],
     title: document.getElementById("title").value,
     description: document.getElementById("description").value,
     endsAt: document.getElementById("ends-at").value,
@@ -70,7 +71,7 @@ async function showAuctionDetails(auctionDetails) {
   }
 
   document.getElementById("description").value = listingDetails.description;
-
+  document.getElementById("listing-img").src = listingDetails.media;
   document.getElementById("title").value = listingDetails.title;
   document.getElementById("ends-at").value = listingDetails.endsAt;
 }
