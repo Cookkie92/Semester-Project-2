@@ -25,6 +25,7 @@ async function showAuctionDetails(auctionDetails) {
     ).amount;
   }
 
+  document.getElementById("listing-media").value = listingDetails.media;
   document.getElementById("description").value = listingDetails.description;
   document.getElementById("seller").value = listingDetails.seller.name;
   document.getElementById("price").value = highestBid;
