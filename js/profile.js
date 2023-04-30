@@ -1,23 +1,48 @@
-// import { getProfile } from "./profilesApi.js";
+import { getProfile, updateProfileAvatar } from "./profileApi.js";
+const userName = document.getElementById("username");
+const email = document.getElementById("email");
+const credits = document.getElementById("credits");
+const avatar = document.getElementById("avatar");
+const avatarPreview = document.getElementById("avatar-preview");
 
-async function populateAccountValues() {
-  try {
-    let localProfileData = localStorage.getItem("ProfileData");
-    let profileData = JSON.parse(localProfileData);
+let localStorageProfileData = localStorage.getItem("ProfileData");
+let localProfileData = JSON.parse(localStorageProfileData);
 
-    const userName = document.getElementById("username");
-    const email = document.getElementById("email");
-    const credits = document.getElementById("credits");
-    const avatar = document.getElementById("avatar");
+async function populateAccountValues(profileData) {
+  userName.value = profileData.name;
+  email.value = profileData.email;
+  credits.value = profileData.credits;
 
-    userName.value = profileData.name;
-    email.value = profileData.email;
-    credits.value = profileData.credits;
-    avatar.value = profileData.avatar;
-  } catch (error) {
-    console.error("Error fetching listings:", error);
-    // Display an error message or update the UI here
+  if (profileData.avatar != null && profileData.avatar != "") {
+    avatarPreview.src = profileData.avatar;
   }
 }
 
-populateAccountValues();
+async function getProfileData() {
+  const profileData = await getProfile(
+    localProfileData.name,
+    localProfileData.accessToken
+  );
+  populateAccountValues(profileData);
+}
+
+async function saveAvatar() {
+  await updateProfileAvatar(
+    localProfileData.name,
+    avatarPreview.src,
+    localProfileData.accessToken
+  );
+}
+avatar.addEventListener("blur", () => {
+  if (avatar.value !== "") {
+    avatarPreview.src = avatar.value;
+  }
+});
+
+document
+  .getElementById("account-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await saveAvatar();
+  });
+await getProfileData();

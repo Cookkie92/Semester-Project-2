@@ -9,7 +9,7 @@ async function getAllProfiles() {
   }
 }
 
-async function updateProfileAvatar(profileName, profileData, token) {
+async function updateProfileAvatar(profileName, avatar, token) {
   /* Body below, string is bitarray
          {
             "avatar": "string"
@@ -24,7 +24,7 @@ async function updateProfileAvatar(profileName, profileData, token) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(profileData),
+        body: JSON.stringify({ avatar }),
       }
     );
 
