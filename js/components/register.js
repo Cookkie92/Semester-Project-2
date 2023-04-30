@@ -1,4 +1,4 @@
-import { registerUser } from "./authApi.js";
+import { registerUser } from "./utils/authApi.js";
 
 async function handleRegister() {
   const userNameInput = document.getElementById("username");

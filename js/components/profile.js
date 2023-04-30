@@ -1,4 +1,4 @@
-import { getProfile, updateProfileAvatar } from "./profileApi.js";
+import { getProfile, updateProfileAvatar } from "./utils/profileApi.js";
 const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const credits = document.getElementById("credits");

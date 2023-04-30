@@ -1,5 +1,9 @@
-import { getAllListings, getListing, postListingBid } from "./listingsApi.js";
-import { getProfile } from "./profileApi.js";
+import {
+  getAllListings,
+  getListing,
+  postListingBid,
+} from "./utils/listingsApi.js";
+import { getProfile } from "./utils/profileApi.js";
 
 const listings = await getAllListings();
 const listingsTable = document.getElementById("listings-table");

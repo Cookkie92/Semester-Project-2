@@ -1,5 +1,5 @@
-import { getListing, createListing } from "./listingsApi.js";
-import { getProfile } from "./profileApi.js";
+import { getListing, createListing } from "./utils/listingsApi.js";
+import { getProfile } from "./utils/profileApi.js";
 
 let localProfileData = localStorage.getItem("ProfileData");
 let profileData = JSON.parse(localProfileData);

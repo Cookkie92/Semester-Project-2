@@ -1,6 +1,4 @@
-import { loginUser } from "./authApi.js";
-
-const profileMenu = document.getElementById("profile-menu");
+import { loginUser } from "./utils/authApi.js";
 
 async function handleLogin() {
   const emailInput = document.getElementById("inputEmail");
@@ -19,21 +17,6 @@ async function handleLogin() {
   } catch (error) {
     console.error("Error logging in:", error);
     // Display an error message or update the UI here
-  }
-}
-
-function displayProfileMenu() {
-  let localStorageProfileData = localStorage.getItem("ProfileData");
-  if (localStorageProfileData === null) {
-    profileMenu.innerHTML += `
-    <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="login.html"
-        ><i class="fas fa-user"></i> Login</a
-      >
-    </li>
-  </ul>
-    `;
   }
 }
 
