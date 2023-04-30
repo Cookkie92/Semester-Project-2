@@ -1,5 +1,7 @@
 import { loginUser } from "./authApi.js";
 
+const profileMenu = document.getElementById("profile-menu");
+
 async function handleLogin() {
   const emailInput = document.getElementById("inputEmail");
   const passwordInput = document.getElementById("inputPassword");
@@ -9,7 +11,7 @@ async function handleLogin() {
     const password = passwordInput.value.trim();
 
     const loginData = await loginUser(email, password);
-    localStorage.setItem("accessToken", loginData.accessToken);
+    // localStorage.setItem("accessToken", loginData.accessToken);
     localStorage.setItem("ProfileData", JSON.stringify(loginData));
 
     console.log("Logged in successfully");
@@ -20,7 +22,23 @@ async function handleLogin() {
   }
 }
 
+function displayProfileMenu() {
+  let localStorageProfileData = localStorage.getItem("ProfileData");
+  if (localStorageProfileData === null) {
+    profileMenu.innerHTML += `
+    <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="login.html"
+        ><i class="fas fa-user"></i> Login</a
+      >
+    </li>
+  </ul>
+    `;
+  }
+}
+
 document.getElementById("login-form").addEventListener("submit", (event) => {
   event.preventDefault();
   handleLogin();
 });
+displayProfileMenu();

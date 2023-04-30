@@ -37,45 +37,15 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
-                  >Home</a
-                >
+                <a class="nav-link" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="createlisting.html">MyActions</a>
               </li>
             </ul>
-            <!-- <ul class="navbar-nav ms-auto"> -->
-            <div class="dropdown navbar-nav ms-auto">
-              <a
-                class="btn btn-secondary dropdown-toggle"
-                href="#"
-                role="button"
-                id="accountDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-user"></i> Profile
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="accountDropdown"
-              >
-                <li class="nav-item">
-                  <a class="dropdown-item" href="account.html"> View Profile</a>
-                </li>
-                <li>
-                  <button class="dropdown-item" type="button">Logout</button>
-                </li>
-              </ul>
-            </div>
-            <!-- </ul> -->
+
+            <div class="dropdown navbar-nav ms-auto" id="profile-menu"></div>
           </div>
         </div>
       </nav>
@@ -186,6 +156,7 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/login.js" type="module"></script>
     <script src="/js/listings.js" type="module"></script>
   </body>
 </html>
