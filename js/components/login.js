@@ -20,8 +20,11 @@ async function handleLogin() {
   }
 }
 
-document.getElementById("login-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  handleLogin();
-});
+document
+  .getElementById("login-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await handleLogin();
+    window.location.assign("index.html");
+  });
 displayProfileMenu();

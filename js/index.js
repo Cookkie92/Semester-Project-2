@@ -74,6 +74,7 @@ function displayProfileMenu() {
     document.getElementById("logOutBtn").addEventListener("click", (event) => {
       event.preventDefault();
       localStorage.clear();
+      location.reload();
     });
   }
 }
