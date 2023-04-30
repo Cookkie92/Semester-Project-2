@@ -51,13 +51,31 @@
                 <a class="nav-link" href="createlisting.html">MyActions</a>
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="account.html"
-                  ><i class="fas fa-user"></i> Account</a
-                >
-              </li>
-            </ul>
+            <!-- <ul class="navbar-nav ms-auto"> -->
+            <div class="dropdown navbar-nav ms-auto">
+              <a
+                class="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                id="accountDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user"></i> Profile
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="accountDropdown"
+              >
+                <li class="nav-item">
+                  <a class="dropdown-item" href="account.html"> View Profile</a>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button">Logout</button>
+                </li>
+              </ul>
+            </div>
+            <!-- </ul> -->
           </div>
         </div>
       </nav>
