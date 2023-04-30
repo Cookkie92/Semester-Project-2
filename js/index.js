@@ -66,10 +66,15 @@ function displayProfileMenu() {
     </li>
     
     <li>
-      <button class="dropdown-item" type="button">Logout</button>
+      <button class="dropdown-item" id="logOutBtn" type="button">Logout</button>
     </li>
   </ul>
     `;
+
+    document.getElementById("logOutBtn").addEventListener("click", (event) => {
+      event.preventDefault();
+      localStorage.clear();
+    });
   }
 }
 
