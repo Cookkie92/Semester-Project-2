@@ -44,13 +44,17 @@ footer {
 .listings-card {
   max-width: 800px;
   width: 300px;
-  height: 300px;
+  height: 500px;
   text-decoration: none;
   display: inline-block;
   font-size: 1.05rem;
   border-radius: 10px;
   background-color: #d9afd9;
   background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+}
+.listing-img {
+  height: 200px;
+  width: 300px;
 }
 
 .listings-head {

@@ -67,8 +67,10 @@ async function submitBid(event) {
 listings.forEach((listing) => {
   const row = document.createElement("div");
   row.className = "listings-card";
-  // const mediaCell = document.createElement("img");
-  // mediaCell.src = "listing.media";
+  const mediaCell = document.createElement("img");
+  mediaCell.src = listing.media;
+  row.appendChild(mediaCell);
+  mediaCell.className = "listing-img";
   const titleCell = document.createElement("h4");
   titleCell.textContent = listing.title;
   row.appendChild(titleCell);
