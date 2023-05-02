@@ -9,7 +9,6 @@ async function handleLogin() {
     const password = passwordInput.value.trim();
 
     const loginData = await loginUser(email, password);
-    // localStorage.setItem("accessToken", loginData.accessToken);
     localStorage.setItem("ProfileData", JSON.stringify(loginData));
 
     console.log("Logged in successfully");

@@ -52,7 +52,7 @@ async function updateListing(listingId, listingData, token) {
   }
 }
 
-async function getListing(listingId, token) {
+async function getListing(listingId) {
   try {
     const response = await fetch(
       `${baseUrl}/auction/listings/${listingId}?_seller=true&_bids=true`,
@@ -60,7 +60,6 @@ async function getListing(listingId, token) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
       }
     );

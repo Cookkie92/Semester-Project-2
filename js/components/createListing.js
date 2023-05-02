@@ -60,8 +60,7 @@ async function showAuctionDetails(auctionDetails) {
   auctionDetailsSection.style.display = "block";
   const listingId = auctionDetails.id;
   localStorage.setItem("listingId", listingId);
-  const token = localStorage.getItem("accessToken");
-  const listingDetails = await getListing(listingId, token);
+  const listingDetails = await getListing(listingId);
   let highestBid = 0;
 
   if (listingDetails.bids && listingDetails.bids.length > 0) {

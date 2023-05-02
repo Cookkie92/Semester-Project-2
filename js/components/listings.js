@@ -4,7 +4,7 @@ import {
   postListingBid,
 } from "./utils/listingsApi.js";
 import { getProfile } from "./utils/profileApi.js";
-
+let profileData = JSON.parse(localStorage.getItem("ProfileData"));
 const listings = await getAllListings();
 const listingsTable = document.getElementById("listings-table");
 const listingsTableBody = document.getElementById("listings-table-body");
@@ -19,8 +19,7 @@ async function showAuctionDetails(auctionDetails) {
   auctionDetailsSection.style.display = "block";
   const listingId = auctionDetails.id;
   localStorage.setItem("listingId", listingId);
-  const token = localStorage.getItem("accessToken");
-  const listingDetails = await getListing(listingId, token);
+  const listingDetails = await getListing(listingId);
   let highestBid = 0;
 
   if (listingDetails.bids && listingDetails.bids.length > 0) {
@@ -40,11 +39,11 @@ async function showAuctionDetails(auctionDetails) {
 // A function to handle the submission of a bid
 async function submitBid(event) {
   event.preventDefault();
-  const token = localStorage.getItem("accessToken");
+
   const listingId = localStorage.getItem("listingId");
   const bidAmount = parseInt(document.getElementById("bid").value);
-  await postListingBid(listingId, bidAmount, token);
-  const listingDetails = await getListing(listingId, token);
+  await postListingBid(listingId, bidAmount, profileData.accessToken);
+  const listingDetails = await getListing(listingId, profileData.accessToken);
 
   let highestBid = 0;
 
@@ -55,11 +54,10 @@ async function submitBid(event) {
   }
 
   document.getElementById("price").value = highestBid;
-  let localProfileData = localStorage.getItem("ProfileData");
-  let profileData = JSON.parse(localProfileData);
+  // let localProfileData = localStorage.getItem("ProfileData");
 
   profileData.credits = (
-    await getProfile(profileData.name, token, "/credits")
+    await getProfile(profileData.name, profileData.accessToken, "/credits")
   ).credits;
 
   localStorage.setItem("ProfileData", JSON.stringify(profileData));
@@ -67,18 +65,18 @@ async function submitBid(event) {
 
 // Loop through the listings array and add each one to the table
 listings.forEach((listing) => {
-  const row = document.createElement("tr");
+  const row = document.createElement("div");
   row.className = "listings-card";
-  const titleCell = document.createElement("td");
+  const titleCell = document.createElement("h4");
   titleCell.textContent = listing.title;
   row.appendChild(titleCell);
-  const descriptionCell = document.createElement("td");
+  const descriptionCell = document.createElement("p");
   descriptionCell.textContent = listing.description;
   row.appendChild(descriptionCell);
-  const priceCell = document.createElement("td");
+  const priceCell = document.createElement("p");
   priceCell.textContent = listing.price;
   row.appendChild(priceCell);
-  const auctionCell = document.createElement("td");
+  const auctionCell = document.createElement("p");
   const auctionButton = document.createElement("button");
   auctionButton.className = "btn btn-info";
   auctionButton.textContent = "View Auction";
@@ -94,6 +92,6 @@ placeBidButton.addEventListener("click", submitBid);
 
 // Add an event listener to the "Return to Listings" button
 returnToListingsButton.addEventListener("click", () => {
-  listingsTable.style.display = "table";
+  listingsTable.style.display = "block";
   auctionDetailsSection.style.display = "none";
 });
