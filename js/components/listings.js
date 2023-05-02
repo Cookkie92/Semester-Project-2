@@ -79,6 +79,7 @@ listings.forEach((listing) => {
   row.appendChild(priceCell);
   const auctionCell = document.createElement("td");
   const auctionButton = document.createElement("button");
+  auctionButton.className = "btn btn-info";
   auctionButton.textContent = "View Auction";
   auctionButton.addEventListener("click", () => showAuctionDetails(listing));
   auctionCell.appendChild(auctionButton);

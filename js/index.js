@@ -5,7 +5,7 @@ function createNav() {
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Bidbois</a>
+      <a class="navbar-brand" href="index.html">Bid|Bois</a>
       <button
         class="navbar-toggler"
         type="button"
