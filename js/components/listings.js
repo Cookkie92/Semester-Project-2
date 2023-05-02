@@ -90,6 +90,10 @@ listings.forEach((listing) => {
   listingsTableBody.appendChild(row);
 });
 
+function ikjebilde(mediaCell) {
+  if (mediaCell != listing.media) {
+  }
+}
 // Add an event listener to the bid submission form
 const placeBidButton = document.getElementById("place-bid-button");
 placeBidButton.addEventListener("click", submitBid);
