@@ -79,4 +79,18 @@ footer .fa-brands {
 .mt-5 {
   color: grey;
   font-family: "Gentium Book Basic", serif;
+}
+
+.d-block {
+  width: 300px;
+  height: 200px;
+}
+
+.img-thumbnail {
+  width: 300px;
+  height: 300px;
+}
+
+.listings-card {
+  height: 200px !important;
 }/*# sourceMappingURL=style.css.map */

@@ -68,6 +68,7 @@ async function submitBid(event) {
 // Loop through the listings array and add each one to the table
 listings.forEach((listing) => {
   const row = document.createElement("tr");
+  row.className = "listings-card";
   const titleCell = document.createElement("td");
   titleCell.textContent = listing.title;
   row.appendChild(titleCell);
