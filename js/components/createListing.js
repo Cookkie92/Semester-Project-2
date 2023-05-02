@@ -22,17 +22,17 @@ async function createMyListingTable() {
   );
   listingsTableBody.innerHTML = "";
   listings.forEach((listing) => {
-    const row = document.createElement("tr");
-    const titleCell = document.createElement("td");
+    const row = document.createElement("div");
+    const titleCell = document.createElement("h4");
     titleCell.textContent = listing.title;
     row.appendChild(titleCell);
-    const descriptionCell = document.createElement("td");
+    const descriptionCell = document.createElement("p");
     descriptionCell.textContent = listing.description;
     row.appendChild(descriptionCell);
-    const priceCell = document.createElement("td");
+    const priceCell = document.createElement("p");
     priceCell.textContent = listing.price;
     row.appendChild(priceCell);
-    const auctionCell = document.createElement("td");
+    const auctionCell = document.createElement("p");
     const auctionButton = document.createElement("button");
     auctionButton.textContent = "View Auction";
     auctionButton.addEventListener("click", () => showAuctionDetails(listing));

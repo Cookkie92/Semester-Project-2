@@ -30,19 +30,11 @@
         <div class="container">
           <h1 class="mt-5">My Auctions</h1>
           <button class="new-listing-btn" id="add-listing">New listing</button>
-          <table class="table" id="listings-table">
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Auction</th>
-              </tr>
-            </thead>
-            <tbody class="listings-body" id="listings-table-body">
+          <section class="table" id="listings-table">
+            <div class="listings-body" id="listings-table-body">
               <!-- The table body will be populated with the fetched listings -->
-            </tbody>
-          </table>
+            </div>
+          </section>
         </div>
         <!-- This section will display details about the selected auction when a row is clicked -->
         <div class="container" id="auction-details" style="display: none">
