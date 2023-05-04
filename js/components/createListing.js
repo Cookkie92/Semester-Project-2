@@ -12,7 +12,7 @@ const returnToListingsButton = document.getElementById(
 const addListing = document.getElementById("add-listing");
 const createListingBtn = document.getElementById("create-listing-btn");
 
-// localStorage.setItem("ProfileData", JSON.stringify(profileData));
+
 //createlistingtable
 async function createMyListingTable() {
   const listings = await getProfile(

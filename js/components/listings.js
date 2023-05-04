@@ -54,8 +54,7 @@ async function submitBid(event) {
   }
 
   document.getElementById("price").value = highestBid;
-  // let localProfileData = localStorage.getItem("ProfileData");
-
+ 
   profileData.credits = (
     await getProfile(profileData.name, profileData.accessToken, "/credits")
   ).credits;
