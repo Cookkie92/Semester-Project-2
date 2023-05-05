@@ -74,15 +74,12 @@ listings.forEach((listing) => {
     const titleCell = document.createElement("h4");
     titleCell.textContent = listing.title;
     row.appendChild(titleCell);
-    // const descriptionCell = document.createElement("p");
-    // descriptionCell.textContent = listing.description;
-    // row.appendChild(descriptionCell);
     const priceCell = document.createElement("p");
     priceCell.textContent = listing.price;
     row.appendChild(priceCell);
     const auctionCell = document.createElement("p");
     const auctionButton = document.createElement("button");
-    auctionButton.className = "btn btn-info";
+    auctionButton.className = "btn btn-primary";
     auctionButton.textContent = "View Auction";
     auctionButton.addEventListener("click", () => showAuctionDetails(listing));
     auctionCell.appendChild(auctionButton);

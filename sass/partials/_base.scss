@@ -4,8 +4,12 @@ body {
   background-color: rgb(243, 243, 243);
   color: rgb(0, 0, 0);
 }
+body p{
+  font-family: $font-primary;
+}
 
 footer {
+  margin-top:100px;
   display: flex;
   justify-content: space-between;
   background-color: #0093e9;
@@ -31,7 +35,7 @@ footer {
 
 .listings-body {
   color: rgb(0, 0, 0);
-  font-family: $font-primary;
+  font-family: $font-headings;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -46,7 +50,7 @@ footer {
   font-size: 1.05rem;
   border-radius: 10px;
   background-color: #d9afd9;
-  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+  background-image: linear-gradient(0deg, #d1ecf3 0%, #232424 100%);
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -61,38 +65,19 @@ footer {
   height: 200px;
 }
 
-.listings-head {
-  color: rgb(9, 9, 9);
-  font-family: $font-headings;
-}
-//Buttons
-.new-listing-btn {
-  background-color: red;
-}
-.btn-primary {
-  background-color: red;
-  border-color: red;
 
-}
-.btn-info {
-  margin-top: 10px;
-}
+//Buttons
+
+
+
 //headings
 .mt-5 {
-  color: grey;
+  color: getColor(transparentblack);
   font-family: $font-headings;
 }
 .d-block {
   width: 300px;
   height: 200px;
 }
-// .img-thumbnail {
-//   width: 300px;
-//   height: 300px;
-// }
-// .avatar-img{
-//   width:100px;
-//   height:100px;
-// }
 
 
