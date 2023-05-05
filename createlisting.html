@@ -27,20 +27,18 @@
   <body>
     <div class="wrapper">
       <main>
-        <div class="container">
+        <div class="container d-flex flex-column align-items-center">
           <h1 class="mt-5">My Auctions</h1>
           <button class="new-listing-btn" id="add-listing">New listing</button>
           <section class="table" id="listings-table">
             <div class="listings-body" id="listings-table-body">
-              <!-- The table body will be populated with the fetched listings -->
+             
             </div>
           </section>
         </div>
-        <!-- This section will display details about the selected auction when a row is clicked -->
+        
         <div class="container" id="auction-details" style="display: none">
           
-          
-         
           <form id="account-form" class="d-flex flex-column align-items-center">
             <h1 class="mt-5">Auction Details</h1>
             <button
@@ -55,7 +53,7 @@
                 >Listing Image</label
               >
               <img
-                src="https://via.placeholder.com/150"
+                src=""
                 alt="Current listing img"
                 id="listing-img"
                 class="img-thumbnail"

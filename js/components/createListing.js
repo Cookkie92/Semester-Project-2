@@ -23,17 +23,23 @@ async function createMyListingTable() {
   listingsTableBody.innerHTML = "";
   listings.forEach((listing) => {
     const row = document.createElement("div");
+    row.className = "listings-card";
     const titleCell = document.createElement("h4");
     titleCell.textContent = listing.title;
     row.appendChild(titleCell);
-    const descriptionCell = document.createElement("p");
-    descriptionCell.textContent = listing.description;
-    row.appendChild(descriptionCell);
+    const mediaCell = document.createElement("img");
+    mediaCell.src = listing.media;
+    row.appendChild(mediaCell);
+    mediaCell.className = "listing-img";
+    // const descriptionCell = document.createElement("p");
+    // descriptionCell.textContent = listing.description;
+    // row.appendChild(descriptionCell);
     const priceCell = document.createElement("p");
     priceCell.textContent = listing.price;
     row.appendChild(priceCell);
     const auctionCell = document.createElement("p");
     const auctionButton = document.createElement("button");
+    auctionButton.className = "btn btn-info";
     auctionButton.textContent = "View Auction";
     auctionButton.addEventListener("click", () => showAuctionDetails(listing));
     auctionCell.appendChild(auctionButton);
