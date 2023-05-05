@@ -38,33 +38,37 @@
         </div>
         <!-- This section will display details about the selected auction when a row is clicked -->
         <div class="container" id="auction-details" style="display: none">
-          <h1 class="mt-5">Auction Details</h1>
-          <button
+          
+          
+         
+          <form id="account-form" class="d-flex flex-column align-items-center">
+            <h1 class="mt-5">Auction Details</h1>
+            <button
             type="submit"
             class="btn btn-primary"
             id="return-to-listings-button"
           >
             Return to Listings
           </button>
-          <div class="mb-3">
-            <label for="listing-img-url" class="form-label"
-              >Listing Image</label
-            >
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Current listing img"
-              id="listing-img"
-              class="d-block mb-3"
-            />
-            <input
-              type="src"
-              class="form-control"
-              id="listing-img-url"
-              accept="image/*"
-            />
-          </div>
-          <form id="account-form">
-            <div class="mb-3">
+            <div class="mb-3 col-sm-4">
+              <label for="listing-img-url" class="form-label"
+                >Listing Image</label
+              >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Current listing img"
+                id="listing-img"
+                class="img-thumbnail"
+              />
+              <input
+                type="src"
+                class="form-control"
+                id="listing-img-url"
+                accept="image/*"
+                placeholder="input url"
+              />
+            </div>
+            <div class="mb-3 col-sm-4">
               <label for="title" class="form-label">Title</label>
               <input
                 type="text"
@@ -74,7 +78,7 @@
               />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-sm-4">
               <label for="description" class="form-label">Description</label>
               <input
                 type="text"
@@ -83,14 +87,15 @@
                 value="Description about the item being auctioned"
               />
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-sm-4">
               <label for="ends-at" class="form-label">Ends at</label>
               <input type="date" class="form-control" id="ends-at" value="" />
             </div>
+            <button type="submit" class="btn btn-primary" id="create-listing-btn">
+              Create listing
+            </button>
           </form>
-          <button type="submit" class="btn btn-primary" id="create-listing-btn">
-            Create listing
-          </button>
+        
         </div>
       </main>
       <footer>
