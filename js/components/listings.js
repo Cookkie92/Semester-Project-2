@@ -12,7 +12,6 @@ const auctionDetailsSection = document.getElementById("auction-details");
 const returnToListingsButton = document.getElementById(
   "return-to-listings-button"
 );
-
 // A function to display details about the selected auction
 async function showAuctionDetails(auctionDetails) {
   listingsTable.style.display = "none";
@@ -31,6 +30,7 @@ async function showAuctionDetails(auctionDetails) {
   document.getElementById("listing-media").src = listingDetails.media;
   document.getElementById("description").value = listingDetails.description;
   document.getElementById("seller").value = listingDetails.seller.name;
+  document.getElementById("avatar").src = listingDetails.seller.avatar;
   document.getElementById("price").value = highestBid;
   document.getElementById("title").value = listingDetails.title;
   document.getElementById("ends-at").value = listingDetails.endsAt;
@@ -62,37 +62,38 @@ async function submitBid(event) {
   localStorage.setItem("ProfileData", JSON.stringify(profileData));
 }
 
-// Loop through the listings array and add each one to the table
+// Loop through the listings array and add each one to the site
 listings.forEach((listing) => {
-  const row = document.createElement("div");
-  row.className = "listings-card";
-  const mediaCell = document.createElement("img");
-  mediaCell.src = listing.media;
-  row.appendChild(mediaCell);
-  mediaCell.className = "listing-img";
-  const titleCell = document.createElement("h4");
-  titleCell.textContent = listing.title;
-  row.appendChild(titleCell);
-  const descriptionCell = document.createElement("p");
-  descriptionCell.textContent = listing.description;
-  row.appendChild(descriptionCell);
-  const priceCell = document.createElement("p");
-  priceCell.textContent = listing.price;
-  row.appendChild(priceCell);
-  const auctionCell = document.createElement("p");
-  const auctionButton = document.createElement("button");
-  auctionButton.className = "btn btn-info";
-  auctionButton.textContent = "View Auction";
-  auctionButton.addEventListener("click", () => showAuctionDetails(listing));
-  auctionCell.appendChild(auctionButton);
-  row.appendChild(auctionCell);
-  listingsTableBody.appendChild(row);
+  if(listing.media !== ""){
+    const row = document.createElement("div");
+    row.className = "listings-card";
+    const mediaCell = document.createElement("img");
+    mediaCell.src = listing.media;
+    row.appendChild(mediaCell);
+    mediaCell.className = "listing-img";
+    const titleCell = document.createElement("h4");
+    titleCell.textContent = listing.title;
+    row.appendChild(titleCell);
+    // const descriptionCell = document.createElement("p");
+    // descriptionCell.textContent = listing.description;
+    // row.appendChild(descriptionCell);
+    const priceCell = document.createElement("p");
+    priceCell.textContent = listing.price;
+    row.appendChild(priceCell);
+    const auctionCell = document.createElement("p");
+    const auctionButton = document.createElement("button");
+    auctionButton.className = "btn btn-info";
+    auctionButton.textContent = "View Auction";
+    auctionButton.addEventListener("click", () => showAuctionDetails(listing));
+    auctionCell.appendChild(auctionButton);
+    row.appendChild(auctionCell);
+    listingsTableBody.appendChild(row);
+
+}
 });
 
-function ikjebilde(mediaCell) {
-  if (mediaCell != listing.media) {
-  }
-}
+
+
 // Add an event listener to the bid submission form
 const placeBidButton = document.getElementById("place-bid-button");
 placeBidButton.addEventListener("click", submitBid);
