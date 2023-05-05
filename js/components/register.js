@@ -18,11 +18,11 @@ async function handleRegister() {
       location.href = "login.html";
     }
 
-    // Redirect to another page or update the UI here
+   
   } catch (error) {
     console.error("Error logging in:", error);
 
-    // Display an error message or update the UI here
+    
   }
 }
 

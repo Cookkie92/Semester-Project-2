@@ -12,7 +12,7 @@ const auctionDetailsSection = document.getElementById("auction-details");
 const returnToListingsButton = document.getElementById(
   "return-to-listings-button"
 );
-// A function to display details about the selected auction
+
 async function showAuctionDetails(auctionDetails) {
   listingsTable.style.display = "none";
   auctionDetailsSection.style.display = "block";
