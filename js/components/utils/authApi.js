@@ -2,6 +2,7 @@ import { baseUrl } from "../../settings/api.js";
 
 async function loginUser(email, password) {
   try {
+
     const response = await fetch(`${baseUrl}/auction/auth/login`, {
       method: "POST",
       headers: {
@@ -9,7 +10,9 @@ async function loginUser(email, password) {
       },
       body: JSON.stringify({ email, password }),
     });
-
+    if(response.status !== 200){
+      return null;
+    }
     return await response.json();
   } catch (error) {
     console.error("Error logging in:", error);
@@ -26,7 +29,9 @@ async function registerUser(name, email, password) {
       },
       body: JSON.stringify({ name, email, password }),
     });
-
+    if(response.status !== 201){
+      return null;
+    }
     return await response.json();
   } catch (error) {
     console.error("Error registering:", error);

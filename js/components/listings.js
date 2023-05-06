@@ -26,15 +26,16 @@ async function showAuctionDetails(auctionDetails) {
       prev.amount > current.amount ? prev : current
     ).amount;
   }
-
+  var realDate = new Date(listingDetails.endsAt)
   document.getElementById("listing-media").src = listingDetails.media;
   document.getElementById("description").value = listingDetails.description;
   document.getElementById("seller").value = listingDetails.seller.name;
   document.getElementById("avatar").src = listingDetails.seller.avatar;
   document.getElementById("price").value = highestBid;
   document.getElementById("title").value = listingDetails.title;
-  document.getElementById("ends-at").value = listingDetails.endsAt;
+  document.getElementById("ends-at").value = realDate.toLocaleDateString();
 }
+
 
 // A function to handle the submission of a bid
 async function submitBid(event) {

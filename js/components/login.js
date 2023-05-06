@@ -6,12 +6,14 @@ async function handleLogin() {
 
   try {
     const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
+    const password = passwordInput.value.trim(); 
+    
     const loginData = await loginUser(email, password);
+    if(loginData === null){
+      return null
+    }
     localStorage.setItem("ProfileData", JSON.stringify(loginData));
-
-    console.log("Logged in successfully");
+    return "Logged in successfully";
    
   } catch (error) {
     console.error("Error logging in:", error);
@@ -23,7 +25,8 @@ document
   .getElementById("login-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-    await handleLogin();
-    window.location.assign("index.html");
+    if(await handleLogin() != null){
+      window.location.assign("index.html");
+    }
   });
-displayProfileMenu();
+// displayProfileMenu();

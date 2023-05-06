@@ -11,16 +11,16 @@ async function handleRegister() {
     const password = passwordInput.value.trim();
     const reponse = await registerUser(userName, email, password);
 
-    console.log("Logged in successfully");
+    
     const registerSucess = document.getElementById("register-sucess");
-    if (reponse.name) {
+    if (reponse !== null) {
       registerSucess.style.display = "block";
       location.href = "login.html";
     }
 
    
   } catch (error) {
-    console.error("Error logging in:", error);
+    console.error("Error register:", error);
 
     
   }
