@@ -36,7 +36,7 @@ async function createMyListingTable() {
     row.appendChild(priceCell);
     const auctionCell = document.createElement("p");
     const auctionButton = document.createElement("button");
-    auctionButton.className = "btn btn-info";
+    auctionButton.className = "btn btn-secondary";
     auctionButton.textContent = "View Auction";
     auctionButton.addEventListener("click", () => showAuctionDetails(listing));
     auctionCell.appendChild(auctionButton);

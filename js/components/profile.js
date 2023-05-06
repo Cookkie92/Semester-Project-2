@@ -40,7 +40,7 @@ avatar.addEventListener("blur", () => {
 });
 
 document
-  .getElementById("account-form")
+     .getElementById("account-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
     await saveAvatar();

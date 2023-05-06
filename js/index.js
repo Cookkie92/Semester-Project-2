@@ -59,13 +59,16 @@ function displayProfileMenu() {
     aria-labelledby="accountDropdown"
   >
   <li class="nav-item">
+    <a class="dropdown-item" href="index.html">Listings</a>
+  </li>
+  <li class="nav-item">
     <a class="dropdown-item" href="createlisting.html">My Auctions</a>
   </li>
     <li class="nav-item">
       <a class="dropdown-item" href="profile.html"> View Profile</a>
     </li>
     
-    <li>
+    <li class="nav-item">
       <button class="dropdown-item" id="logOutBtn" type="button">Logout</button>
     </li>
   </ul>
