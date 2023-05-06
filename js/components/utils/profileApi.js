@@ -36,7 +36,6 @@ async function updateProfileAvatar(profileName, avatar, token) {
 }
 
 async function getProfile(profileName, token, options = "") {
- 
   try {
     const response = await fetch(
       `${baseUrl}/auction/profiles/${profileName}${options}`,

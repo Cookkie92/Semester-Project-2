@@ -1,14 +1,21 @@
 .navbar {
   margin: 0 auto;
-  background-image: linear-gradient(160deg, getColor(branddark)  0%, getColor(brandwhite) 100%);
+  background-image: linear-gradient(
+    160deg,
+    getColor(branddark) 0%,
+    getColor(brandwhite) 100%
+  );
 }
-
 
 .navbar-brand {
   margin-left: 75px;
   font-size: 36px;
   font-family: $font-headings !important;
-  background: linear-gradient(to right, getColor(brandwhite) 50%, getColor(brandcolor)  100%);
+  background: linear-gradient(
+    to right,
+    getColor(brandwhite) 50%,
+    getColor(brandcolor) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -16,13 +23,15 @@
 .navbar-nav {
   margin-right: 75px;
   font-family: $font-nav !important;
-  
 }
 .dropdown-menu {
-  background-image: linear-gradient(to right, getColor(branddark) 0%, getColor(brandwhite) 100%);
-  font-size:15px;
+  background-image: linear-gradient(
+    to right,
+    getColor(branddark) 0%,
+    getColor(brandwhite) 100%
+  );
+  font-size: 15px;
 }
-.dropdown-item{
-  color:getColor(brandwhite);
+.dropdown-item {
+  color: getColor(brandwhite);
 }
-

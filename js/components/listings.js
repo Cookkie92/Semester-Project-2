@@ -26,7 +26,7 @@ async function showAuctionDetails(auctionDetails) {
       prev.amount > current.amount ? prev : current
     ).amount;
   }
-  var realDate = new Date(listingDetails.endsAt)
+  var realDate = new Date(listingDetails.endsAt);
   document.getElementById("listing-media").src = listingDetails.media;
   document.getElementById("description").value = listingDetails.description;
   document.getElementById("seller").value = listingDetails.seller.name;
@@ -35,7 +35,6 @@ async function showAuctionDetails(auctionDetails) {
   document.getElementById("title").value = listingDetails.title;
   document.getElementById("ends-at").value = realDate.toLocaleDateString();
 }
-
 
 // A function to handle the submission of a bid
 async function submitBid(event) {
@@ -55,7 +54,7 @@ async function submitBid(event) {
   }
 
   document.getElementById("price").value = highestBid;
- 
+
   profileData.credits = (
     await getProfile(profileData.name, profileData.accessToken, "/credits")
   ).credits;
@@ -65,7 +64,7 @@ async function submitBid(event) {
 
 // Loop through the listings array and add each one to the site
 listings.forEach((listing) => {
-  if(listing.media !== ""){
+  if (listing.media !== "") {
     const row = document.createElement("div");
     row.className = "listings-card";
     const mediaCell = document.createElement("img");
@@ -86,11 +85,8 @@ listings.forEach((listing) => {
     auctionCell.appendChild(auctionButton);
     row.appendChild(auctionCell);
     listingsTableBody.appendChild(row);
-
-}
+  }
 });
-
-
 
 // Add an event listener to the bid submission form
 const placeBidButton = document.getElementById("place-bid-button");

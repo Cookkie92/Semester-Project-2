@@ -7,7 +7,7 @@
   margin-left: 75px;
   font-size: 36px;
   font-family: "Gentium Book Basic", serif !important;
-  background: linear-gradient(to right, #d1ecf3 50%, #FF00FF 100%);
+  background: linear-gradient(to right, #d1ecf3 50%, #ff00ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -81,7 +81,7 @@ footer .contact-info {
   max-width: 400px;
   margin: 0 auto;
   border: 1px solid #6c757d;
-  box-shadow: 1px 1px 5px #FF00FF;
+  box-shadow: 1px 1px 5px #ff00ff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

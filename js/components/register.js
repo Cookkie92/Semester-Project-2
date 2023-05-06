@@ -11,18 +11,13 @@ async function handleRegister() {
     const password = passwordInput.value.trim();
     const reponse = await registerUser(userName, email, password);
 
-    
     const registerSucess = document.getElementById("register-sucess");
     if (reponse !== null) {
       registerSucess.style.display = "block";
       location.href = "login.html";
     }
-
-   
   } catch (error) {
     console.error("Error register:", error);
-
-    
   }
 }
 

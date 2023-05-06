@@ -12,7 +12,6 @@ const returnToListingsButton = document.getElementById(
 const addListing = document.getElementById("add-listing");
 const createListingBtn = document.getElementById("create-listing-btn");
 
-
 //createlistingtable
 async function createMyListingTable() {
   const listings = await getProfile(
@@ -31,7 +30,7 @@ async function createMyListingTable() {
     const titleCell = document.createElement("h4");
     titleCell.textContent = listing.title;
     row.appendChild(titleCell);
-    
+
     const priceCell = document.createElement("p");
     priceCell.textContent = listing.price;
     row.appendChild(priceCell);
@@ -78,9 +77,6 @@ async function showAuctionDetails(auctionDetails) {
   document.getElementById("title").value = listingDetails.title;
   document.getElementById("ends-at").value = listingDetails.endsAt;
 }
-
-
-
 
 returnToListingsButton.addEventListener("click", () => {
   listingsTable.style.display = "table";
