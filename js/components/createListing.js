@@ -12,7 +12,6 @@ const returnToListingsButton = document.getElementById(
 const addListing = document.getElementById("add-listing");
 const createListingBtn = document.getElementById("create-listing-btn");
 
-//createlistingtable
 async function createMyListingTable() {
   const listings = await getProfile(
     profileData.name,
@@ -44,7 +43,7 @@ async function createMyListingTable() {
     listingsTableBody.appendChild(row);
   });
 }
-//createlistings
+
 async function postListing(event) {
   event.preventDefault();
 
@@ -57,7 +56,6 @@ async function postListing(event) {
   await createListing(listingData, profileData.accessToken);
 }
 
-// A function to display details about the selected auction
 async function showAuctionDetails(auctionDetails) {
   listingsTable.style.display = "none";
   auctionDetailsSection.style.display = "block";

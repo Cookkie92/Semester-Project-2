@@ -36,7 +36,6 @@ async function showAuctionDetails(auctionDetails) {
   document.getElementById("ends-at").value = realDate.toLocaleDateString();
 }
 
-// A function to handle the submission of a bid
 async function submitBid(event) {
   event.preventDefault();
 
@@ -62,7 +61,6 @@ async function submitBid(event) {
   localStorage.setItem("ProfileData", JSON.stringify(profileData));
 }
 
-// Loop through the listings array and add each one to the site
 listings.forEach((listing) => {
   if (listing.media !== "") {
     const row = document.createElement("div");
@@ -88,11 +86,9 @@ listings.forEach((listing) => {
   }
 });
 
-// Add an event listener to the bid submission form
 const placeBidButton = document.getElementById("place-bid-button");
 placeBidButton.addEventListener("click", submitBid);
 
-// Add an event listener to the "Return to Listings" button
 returnToListingsButton.addEventListener("click", () => {
   listingsTable.style.display = "block";
   auctionDetailsSection.style.display = "none";
